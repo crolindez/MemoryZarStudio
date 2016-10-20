@@ -1,24 +1,23 @@
 package es.carlosrolindez.memoryzar;
 
-import java.util.Random;
-
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.app.Dialog;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
+
+import java.util.Random;
 
 
 
@@ -29,9 +28,25 @@ public class MainActivity extends Activity {
 	
 	public static final int MAX_SEQUENCE_SIZE = 8;
 	
-	public static final SoundPool sp = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+	public static SoundPool sp;
 
-	
+	protected SoundPool createSoundPool() {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			AudioAttributes attributes = new AudioAttributes.Builder()
+					.setUsage(AudioAttributes.USAGE_GAME)
+					.setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+					.build();
+			return new SoundPool.Builder()
+					.setAudioAttributes(attributes)
+					.build();
+		} else {
+			return new SoundPool(6,AudioManager.STREAM_MUSIC,0);
+		}
+	}
+
+
+
+
 	public enum ButtonPosition implements Parcelable {
         UpLeft, UpRight, DownLeft, DownRight;
 
@@ -82,10 +97,10 @@ public class MainActivity extends Activity {
 	
 	public static int playingStream;
 	
-	public static Button upLeftButton;
-	public static Button upRightButton;
-	public static Button downRightButton;
-	public static Button downLeftButton;
+	public Button upLeftButton;
+	public Button upRightButton;
+	public Button downRightButton;
+	public Button downLeftButton;
     
     public static final Random random = new Random();
     public final SequenceAnimator animator = new SequenceAnimator();
@@ -95,7 +110,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
+		sp = createSoundPool();
 
 		upLeftSound    = sp.load(this, R.raw.mi,  1); 
 		upRightSound   = sp.load(this, R.raw.la,  1); 
