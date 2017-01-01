@@ -1,9 +1,9 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="Project 'In-Wall_Tester'" />
-    <option name="defaultScopeName" value="Project 'In-Wall_Tester'" />
+    <option name="customScope" value="Project 'InWallTester'" />
+    <option name="defaultScopeName" value="Project 'InWallTester'" />
     <option name="localCaseSensitive" value="true" />
     <option name="LOCAL_CASE_SENSITIVE_SEARCH" value="true" />
-    <option name="SEARCH_SCOPE" value="Project 'In-Wall_Tester'" />
+    <option name="SEARCH_SCOPE" value="Project 'InWallTester'" />
   </component>
 </application>
