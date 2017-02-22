@@ -38,6 +38,10 @@
           <option name="url" value="https://github.com/nicolasgramlich/AndEngineExamples.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/rorist/android-network-discovery.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Carlos\Documents\Android\StudioProjects" />
