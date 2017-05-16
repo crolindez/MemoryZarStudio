@@ -1,7 +1,9 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="Project 'MemoryZar'" />
-    <option name="defaultScopeName" value="Project 'MemoryZar'" />
-    <option name="SEARCH_SCOPE" value="Project 'MemoryZar'" />
+    <option name="customScope" value="Project 'PingComm'" />
+    <option name="defaultScopeName" value="Project 'PingComm'" />
+    <option name="localCaseSensitive" value="true" />
+    <option name="LOCAL_CASE_SENSITIVE_SEARCH" value="true" />
+    <option name="SEARCH_SCOPE" value="Project 'PingComm'" />
   </component>
 </application>
